@@ -10,6 +10,8 @@ import Foundation
 import UIKit
 class NoteDetailView: UIViewController{
     
+    var indexrow:Int  = -1
+    
     var Name: UITextField = {
         let txt = UITextField()
         txt.placeholder = "Enter Note's Name"
@@ -75,7 +77,9 @@ class NoteDetailView: UIViewController{
         
     }
     @objc func goBackHandler(sender: UIButton) {
+        NotesVC.myNotes[indexrow].NoteText = Note.text
         self.present(NotesVC(), animated: true)
+        
     }
     
     

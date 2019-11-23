@@ -134,6 +134,7 @@ extension NotesVC: UITableViewDelegate, UITableViewDataSource {
         let dest = NoteDetailView()
         dest.Name.text = note.Title
         dest.Note.text = note.NoteText
+        dest.indexrow = indexPath.row
       //navigationController?.pushViewController(dest, animated: false)
 
        self.present(dest, animated: true, completion: nil)

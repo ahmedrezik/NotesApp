@@ -10,16 +10,16 @@ import Foundation
 import UIKit
 
 class NoteCell: UITableViewCell{
-    
+    // content View
     var cellContentView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 35
         view.layer.masksToBounds = true
-        view.backgroundColor = .red
+        view.backgroundColor = UIColor(red: 123, green: 158, blue: 143, alpha: 1.0)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+    // Note Title
     var NoteTitleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Avenir-Black", size: 25)
@@ -35,7 +35,7 @@ class NoteCell: UITableViewCell{
 
     
 
-    
+    //Date Label
     var DateLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Helvetica", size: 22)

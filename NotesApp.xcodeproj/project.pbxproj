@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E257810623879269008FCF9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257810523879269008FCF9E /* AppDelegate.swift */; };
 		E257810B23879269008FCF9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E257810923879269008FCF9E /* Main.storyboard */; };
-		E257810E23879269008FCF9E /* NotesApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E257810C23879269008FCF9E /* NotesApp.xcdatamodeld */; };
 		E25781102387926A008FCF9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E257810F2387926A008FCF9E /* Assets.xcassets */; };
 		E25781132387926A008FCF9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25781112387926A008FCF9E /* LaunchScreen.storyboard */; };
 		E257811B23879281008FCF9E /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = E257811A23879281008FCF9E /* Note.swift */; };
@@ -23,7 +22,6 @@
 		E257810223879269008FCF9E /* NotesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E257810523879269008FCF9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E257810A23879269008FCF9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E257810D23879269008FCF9E /* NotesApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NotesApp.xcdatamodel; sourceTree = "<group>"; };
 		E257810F2387926A008FCF9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E25781122387926A008FCF9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E25781142387926A008FCF9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 				E257810F2387926A008FCF9E /* Assets.xcassets */,
 				E25781112387926A008FCF9E /* LaunchScreen.storyboard */,
 				E25781142387926A008FCF9E /* Info.plist */,
-				E257810C23879269008FCF9E /* NotesApp.xcdatamodeld */,
 			);
 			path = NotesApp;
 			sourceTree = "<group>";
@@ -150,7 +147,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E257810E23879269008FCF9E /* NotesApp.xcdatamodeld in Sources */,
 				E257810623879269008FCF9E /* AppDelegate.swift in Sources */,
 				E257811F238794AB008FCF9E /* NoteCell.swift in Sources */,
 				E25781212387982E008FCF9E /* NoteDetailView.swift in Sources */,
@@ -356,19 +352,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E257810C23879269008FCF9E /* NotesApp.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E257810D23879269008FCF9E /* NotesApp.xcdatamodel */,
-			);
-			currentVersion = E257810D23879269008FCF9E /* NotesApp.xcdatamodel */;
-			path = NotesApp.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E25780FA23879269008FCF9E /* Project object */;
 }

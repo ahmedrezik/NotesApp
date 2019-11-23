@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class NotesVC: UIViewController {
-    
+    //Populating the TableView
     static var myNotes:[Notes] = []
     
     var backgroundImageView: UIImageView = {

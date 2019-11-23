@@ -15,7 +15,7 @@ class NoteCell: UITableViewCell{
         let view = UIView()
         view.layer.cornerRadius = 35
         view.layer.masksToBounds = true
-        view.backgroundColor = UIColor(red: 123, green: 158, blue: 143, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 123/255, green: 158/255, blue: 143/255, alpha: 1.0)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()

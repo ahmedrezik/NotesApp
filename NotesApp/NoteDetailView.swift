@@ -30,13 +30,13 @@ class NoteDetailView: UIViewController{
     var Note: UITextView = {
         let field = UITextView()
         field.isEditable = true
-        field.backgroundColor = UIColor.gray
+        field.backgroundColor = UIColor.white
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
     
     override func viewDidLoad() {
-        view.backgroundColor = .white
+        view.backgroundColor = .lightGray
         prepareUI()
     }
     override func viewWillAppear(_ animated: Bool) {

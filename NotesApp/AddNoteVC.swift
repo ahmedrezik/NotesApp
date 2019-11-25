@@ -30,7 +30,7 @@ class AddNoteVC: UIViewController{
     var Note: UITextView = {
         let field = UITextView()
         field.isEditable = true
-        field.backgroundColor = UIColor.lightGray
+        field.backgroundColor = UIColor.white
         field.translatesAutoresizingMaskIntoConstraints = false
         return field
     }()
@@ -48,7 +48,8 @@ class AddNoteVC: UIViewController{
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.lightGray
+        
         
        // prepareUI()
     }

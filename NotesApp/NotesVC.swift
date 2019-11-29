@@ -11,7 +11,11 @@ import UIKit
 
 class NotesVC: UIViewController {
     //Populating the TableView
-    static var myNotes:[Notes] = []
+  
+    
+    static var myNotes:[Notes] = [Notes(title: "Ahmed", text: "Idsfjnsdjn")]
+        
+    
     
     var backgroundImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "homeBG"))
@@ -48,18 +52,47 @@ class NotesVC: UIViewController {
     var childrenViews = [UIView]()
     
     override func viewWillAppear(_ animated: Bool) {
-        view.backgroundColor = .black
-    }
+        
+      
+//         NotesVC.myNotes.append(note2)
+        //NotesVC.myNotes = LoadData()
+        self.navigationController?.isNavigationBarHidden = true
+
+        let encoded:Data = try! JSONEncoder().encode(NotesVC.myNotes)
+        UserDefaults.standard.set(encoded, forKey: "SavedNotes")
+        
+        
+        
+        
+        }
     override func viewDidLoad() {
         super.viewDidLoad()
+                NotificationCenter.default.addObserver(self, selector: #selector(didUserAddNote), name: Notification.Name("didAddNote"), object: nil)
         
 
         
         self.prepareUI()
     }
+    
+    @objc func didUserAddNote() {
+        // Updates data when user adds a new Note
+         
+        if let decoded = UserDefaults.standard.data(forKey: "SavedNotes"){
+        if let arr = try? JSONDecoder().decode(Array<Notes>.self, from: decoded){
+            NotesVC.myNotes = arr 
+        }
+        else{
+            NotesVC.myNotes = []
+        }
+        }
+
+        NotesTableView.reloadData()
+        }
+    
     @objc func addNote(sender: UIButton) {
     
         self.present(AddNoteVC(), animated: true)
+        //self.navigationController?.pushViewController(AddNoteVC(), animated: true)
     }
     
     func prepareUI() {
@@ -104,6 +137,17 @@ class NotesVC: UIViewController {
     
     
     
+    func LoadData() -> Array<Notes>{
+        
+        
+        let decoded = UserDefaults.standard.data(forKey: "SavedNotes")
+              if let arr = try? JSONDecoder().decode(Array<Notes>.self, from: decoded!){
+                  return arr
+              }
+              else{
+                  return []
+              }
+    }
     
     
     
@@ -119,9 +163,7 @@ extension NotesVC: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell") as? NoteCell {
             let note = NotesVC.myNotes[indexPath.row]
             cell.NoteTitleLabel.text = note.Title
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd HH:mm"
-            cell.DateLabel.text = formatter.string(from: note.NoteDate)
+            cell.DateLabel.text = note.NoteDate
             return cell
         }
         
@@ -135,20 +177,13 @@ extension NotesVC: UITableViewDelegate, UITableViewDataSource {
         dest.Name.text = note.Title
         dest.Note.text = note.NoteText
         dest.indexrow = indexPath.row
-      //navigationController?.pushViewController(dest, animated: false)
-
-       self.present(dest, animated: true, completion: nil)
+        let selectedRow: IndexPath? = tableView.indexPathForSelectedRow
+        if let selectedRowNotNill = selectedRow {
+               tableView.deselectRow(at: selectedRowNotNill, animated: true)
+           }
+      navigationController?.pushViewController(dest, animated: true)
+      
     }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if UIDevice.current.userInterfaceIdiom == .phone {
-//            return 300
-//        }else{
-//            if self.view.bounds.width > self.view.bounds.height {
-//                return self.view.bounds.height*0.95
-//            }else{
-//                return self.view.bounds.height*0.55
-//            }
-//        }
-//    }
+
 }

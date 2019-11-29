@@ -22,7 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         let nav1 = UINavigationController()
         let rootController = NotesVC()
+        
         nav1.viewControllers = [rootController]
+        //nav1.navigationController?.isNavigationBarHidden = true
 
 
         let navigationController = UINavigationController(rootViewController: rootController)

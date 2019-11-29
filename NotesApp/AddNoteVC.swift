@@ -60,8 +60,6 @@ class AddNoteVC: UIViewController{
         super.viewDidLoad()
         view.backgroundColor = UIColor.lightGray
         
-        
-       // prepareUI()
     }
     
     
@@ -152,8 +150,7 @@ class AddNoteVC: UIViewController{
       
         
         
-        
-          //  UserDefaults.standard.set([], forKey: "UserNotes")
+    
         
         
          

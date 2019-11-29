@@ -13,10 +13,10 @@ class NotesVC: UIViewController {
     //Populating the TableView
   
     
-    static var myNotes:[Notes] = [Notes(title: "Ahmed", text: "Idsfjnsdjn")]
+    static var myNotes:[Notes] = [Notes(title: "Ahmed", text: "Developed with Love")]
         
     
-    
+    //MARK: background image
     var backgroundImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "homeBG"))
         imageView.contentMode = .scaleAspectFill
@@ -24,6 +24,7 @@ class NotesVC: UIViewController {
         return imageView
     }()
     
+    //MARK: "My Notes" Lael
     var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "My Notes"
@@ -33,6 +34,7 @@ class NotesVC: UIViewController {
         return label
     }()
     
+    //MARK: Add Note Button
     var addButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "addIcon"), for: .normal)
@@ -40,6 +42,7 @@ class NotesVC: UIViewController {
         return button
     }()
     
+    //MARK: TableView containing Notes
     var NotesTableView: UITableView = {
         let tableView = UITableView()
         tableView.backgroundColor = .clear
@@ -49,22 +52,28 @@ class NotesVC: UIViewController {
         return tableView
     }()
     
+    //MARK: The subviews to be added to the Main View
     var childrenViews = [UIView]()
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         
       
-//         NotesVC.myNotes.append(note2)
-        //NotesVC.myNotes = LoadData()
-        self.navigationController?.isNavigationBarHidden = true
 
+        self.navigationController?.isNavigationBarHidden = true
+        if let decoded = UserDefaults.standard.data(forKey: "SavedNotes"){
+               if let arr = try? JSONDecoder().decode(Array<Notes>.self, from: decoded){
+                   print("Added")
+                   NotesVC.myNotes = arr
+               }
+        }
+        
         let encoded:Data = try! JSONEncoder().encode(NotesVC.myNotes)
         UserDefaults.standard.set(encoded, forKey: "SavedNotes")
+
         
-        
-        
-        
-        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
                 NotificationCenter.default.addObserver(self, selector: #selector(didUserAddNote), name: Notification.Name("didAddNote"), object: nil)
@@ -74,14 +83,18 @@ class NotesVC: UIViewController {
         self.prepareUI()
     }
     
+    //MARK: The Notification Method
+    
     @objc func didUserAddNote() {
-        // Updates data when user adds a new Note
-         
+        
+        //User Defaults update
         if let decoded = UserDefaults.standard.data(forKey: "SavedNotes"){
         if let arr = try? JSONDecoder().decode(Array<Notes>.self, from: decoded){
+            print("Added")
             NotesVC.myNotes = arr 
         }
         else{
+            print("empty")
             NotesVC.myNotes = []
         }
         }
@@ -92,9 +105,11 @@ class NotesVC: UIViewController {
     @objc func addNote(sender: UIButton) {
     
         self.present(AddNoteVC(), animated: true)
-        //self.navigationController?.pushViewController(AddNoteVC(), animated: true)
+       
     }
     
+    
+    //MARK: Set up the connstraints of the View
     func prepareUI() {
         addButton.addTarget(self, action: #selector(addNote(sender:)), for: .touchUpInside)
         
@@ -137,23 +152,15 @@ class NotesVC: UIViewController {
     
     
     
-    func LoadData() -> Array<Notes>{
-        
-        
-        let decoded = UserDefaults.standard.data(forKey: "SavedNotes")
-              if let arr = try? JSONDecoder().decode(Array<Notes>.self, from: decoded!){
-                  return arr
-              }
-              else{
-                  return []
-              }
-    }
+
     
     
     
     
     
 }
+
+//MARK: TableView conformation methods
 extension NotesVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return NotesVC.myNotes.count

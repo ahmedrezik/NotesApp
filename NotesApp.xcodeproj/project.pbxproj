@@ -43,6 +43,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E2249440245D44AC0083E1C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E257811A23879281008FCF9E /* Note.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E2249441245D44C90083E1C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E257811C238792E4008FCF9E /* NotesVC.swift */,
+				E257812223879E3C008FCF9E /* AddNoteVC.swift */,
+				E25781202387982E008FCF9E /* NoteDetailView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E2249442245D44D10083E1C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E257811E238794AB008FCF9E /* NoteCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E25780F923879269008FCF9E = {
 			isa = PBXGroup;
 			children = (
@@ -63,11 +89,9 @@
 			isa = PBXGroup;
 			children = (
 				E257810523879269008FCF9E /* AppDelegate.swift */,
-				E257811A23879281008FCF9E /* Note.swift */,
-				E257811E238794AB008FCF9E /* NoteCell.swift */,
-				E257811C238792E4008FCF9E /* NotesVC.swift */,
-				E257812223879E3C008FCF9E /* AddNoteVC.swift */,
-				E25781202387982E008FCF9E /* NoteDetailView.swift */,
+				E2249440245D44AC0083E1C0 /* Model */,
+				E2249442245D44D10083E1C0 /* View */,
+				E2249441245D44C90083E1C0 /* Controller */,
 				E257810923879269008FCF9E /* Main.storyboard */,
 				E257810F2387926A008FCF9E /* Assets.xcassets */,
 				E25781112387926A008FCF9E /* LaunchScreen.storyboard */,

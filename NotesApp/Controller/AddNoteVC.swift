@@ -74,14 +74,14 @@ class AddNoteVC: UIViewController{
         
         NSLayoutConstraint.activate([
             
-            //MARK: Backgorund Image constraints
+            //MARK:- Backgorund Image constraints
             backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
             backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             
-            //MARK: Name constraints
+            //MARK:- Name constraints
             Name.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 60),
             Name.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
         Name.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor, constant: -15),
@@ -89,19 +89,19 @@ class AddNoteVC: UIViewController{
             
             
             
-            //MARK: Title Label constraints
+            //MARK:- Title Label constraints
             titleLabel.trailingAnchor.constraint(equalTo:view.safeAreaLayoutGuide.trailingAnchor, constant: -15),
             titleLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
             titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
            
             
-                //MARK: Note constraints
+                //MARK:- Note constraints
             Note.centerXAnchor.constraint(equalTo: titleLabel.centerXAnchor),
             Note.bottomAnchor.constraint(equalTo: SaveButton.topAnchor, constant: -20),
             Note.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 15),
             Note.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -15),
             
-            //MARK: Save Button constraints
+            //MARK:- Save Button constraints
             SaveButton.topAnchor.constraint(equalTo: Note.bottomAnchor, constant: -15),
             SaveButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: SaveButton.bottomAnchor, constant: -18),
